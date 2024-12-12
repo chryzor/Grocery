@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Create Button -->
+    <Button
+        android:id="@+id/createListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="Create new list" />
+
+    <!-- Join  Button -->
+    <Button
+        android:id="@+id/joinListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter list token to join" />
+
+    <!-- Image View -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+</LinearLayout>

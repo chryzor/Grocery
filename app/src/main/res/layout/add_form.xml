@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_add_form"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/itemNameInput"
+            android:layout_width="394dp"
+            android:layout_height="56dp"
+            android:hint="Item name" />
+
+        <DatePicker
+            android:id="@+id/buyBeforePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/itemQuantityInput"
+            android:layout_width="388dp"
+            android:layout_height="61dp"
+            android:hint="Quantity" />
+
+        <EditText
+            android:id="@+id/itemCostInput"
+            android:layout_width="393dp"
+            android:layout_height="55dp"
+            android:hint="Total cost" />
+
+        <Button
+            android:id="@+id/saveItemButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/homeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
