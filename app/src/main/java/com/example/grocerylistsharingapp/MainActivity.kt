@@ -3,7 +3,9 @@ package com.example.grocerylistsharingapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     //User Interface elememts
     private lateinit var createListButton: Button
+    private lateinit var joinListText: EditText
     private lateinit var joinListButton: Button
 
 
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         // Binding the UI elements
         linearView = findViewById(R.id.linearView)
         joinListButton = findViewById(R.id.joinListButton)
+        joinListText = findViewById(R.id.joinListText)
         createListButton = findViewById(R.id.createListButton)
 
         // Initialize FireStore
@@ -48,7 +52,34 @@ class MainActivity : AppCompatActivity() {
         }
         // Join Button Clicker
         joinListButton.setOnClickListener {
+            val enteredToken = joinListText.text.toString().trim()
 
+            if (enteredToken.isEmpty()) {
+                Toast.makeText(this, "Please enter a token", Toast.LENGTH_SHORT).show()
+            } else {
+                // Query Firestore for the document with the matching token
+                firestore.collection("lists")
+                    .whereEqualTo("token", enteredToken)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        if (!documents.isEmpty) {
+                            // Retrieve the first matching document
+                            val document = documents.documents[0]
+                            val listName = document.getString("listName") ?: "Unnamed List"
+
+                            // Navigate to the list activity and pass data
+                            val intent = Intent(this, ListHomeActivity::class.java)
+                            intent.putExtra("listName", listName)
+                            intent.putStringArrayListExtra("items", arrayListOf()) // Empty list for now
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "No list found with the provided token", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(this, "Error fetching list: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+            }
         }
 
     }
