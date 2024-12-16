@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="128dp"
-            android:oretantion="bottom"
+            android:orientation="horizontal"
             android:text="Add Item" />
 
         <Button

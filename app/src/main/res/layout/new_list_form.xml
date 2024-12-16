@@ -16,4 +16,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save" />
+
+    <TextView
+        android:id="@+id/tokenText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The following is your unique token, you will need to save this to join this list in the future:"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/understandButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I Understand" />
 </LinearLayout>

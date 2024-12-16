@@ -1,5 +1,6 @@
 package com.example.grocerylistsharingapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.LinearLayout
@@ -12,12 +13,18 @@ import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+    // Needs to get done
+    // Create a list, gives unique token for user to remember
+    // Join a list, enter token, given nickname for id
+    //
+
+
     //User Interface elememts
     private lateinit var createListButton: Button
     private lateinit var joinListButton: Button
 
 
-    private lateinit var firestore: Firebase
+    private lateinit var firestore: FirebaseFirestore
     private lateinit var linearView: LinearLayout
 
 
@@ -36,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         //  Create Button Clicker
         createListButton.setOnClickListener {
-
+            val intent = Intent(this, NewList::class.java)
+            startActivity(intent)
         }
         // Join Button Clicker
         joinListButton.setOnClickListener {

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "380095031596",
-    "project_id": "grocery-list-sharing-app",
-    "storage_bucket": "grocery-list-sharing-app.firebasestorage.app"
+    "project_number": "559759341875",
+    "project_id": "grocery-list-c36c3",
+    "storage_bucket": "grocery-list-c36c3.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:380095031596:android:74fd1051ac5702a126a489",
+        "mobilesdk_app_id": "1:559759341875:android:376e084f08f3d6d2b62646",
         "android_client_info": {
           "package_name": "com.example.grocerylistsharingapp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyARDrynnhGfMlTG48A-T_Ytf8PC64qLRao"
+          "current_key": "AIzaSyDQAXhshfFSZbiS5PLFVWC1W9K8ZoXSSmk"
         }
       ],
       "services": {
