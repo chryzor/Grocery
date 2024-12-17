@@ -13,6 +13,7 @@ class ItemsDetailsActivity : AppCompatActivity() {
     private lateinit var itemCost: TextView
     private lateinit var editButton: Button
     private lateinit var removeButton: Button
+    private lateinit var logoutButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +26,13 @@ class ItemsDetailsActivity : AppCompatActivity() {
         itemCost = findViewById(R.id.itemCost)
         editButton = findViewById(R.id.editButton)
         removeButton = findViewById(R.id.removeButton)
+        logoutButton = findViewById(R.id.logoutButton)
 
         // Retrieve data from an intent or database
-        val name = intent.getStringExtra("ITEM_NAME") ?: "Unknown Item"
-        val buyBefore = intent.getStringExtra("ITEM_BUY_BEFORE") ?: "Not Set"
-        val quantity = intent.getIntExtra("ITEM_QUANTITY", 0)
-        val cost = intent.getFloatExtra("ITEM_COST", 0.0f)
+        val name = intent.getStringExtra("itemName") ?: "Unknown Item"
+        val buyBefore = intent.getStringExtra("date") ?: "Not Set"
+        val quantity = intent.getIntExtra("quantity", 0)
+        val cost = intent.getFloatExtra("price", 0.0f)
 
         // Set data to TextViews
         itemName.text = "Item Name: $name"
@@ -45,6 +47,10 @@ class ItemsDetailsActivity : AppCompatActivity() {
 
         removeButton.setOnClickListener {
             // Remove item logic
+        }
+
+        logoutButton.setOnClickListener {
+            finish()
         }
     }
 }
