@@ -31,8 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/navigationBar"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="94dp"
-        android:layout_marginBottom="339dp" />
+        android:layout_marginTop="94dp" />
 
     <LinearLayout
         android:id="@+id/navigationBar"
@@ -44,6 +43,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/totalCostText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Cost: " />
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"

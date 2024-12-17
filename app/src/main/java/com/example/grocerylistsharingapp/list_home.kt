@@ -18,6 +18,7 @@ class ListHomeActivity : AppCompatActivity() {
     private lateinit var logoutButton: Button
     private lateinit var listTitle: TextView
     private lateinit var tokenTitle: TextView
+    private lateinit var totalCostText: TextView
 
     private lateinit var adapter: ItemAdapter
     private lateinit var db: FirebaseFirestore
@@ -34,6 +35,7 @@ class ListHomeActivity : AppCompatActivity() {
         logoutButton = findViewById(R.id.homeLogoutButton)
         listTitle = findViewById(R.id.listTitle)
         tokenTitle = findViewById(R.id.tokenTitle)
+        totalCostText = findViewById(R.id.totalCostText)
 
         // Retrieve the list token from intent
         val listName = intent.getStringExtra("listName") ?: "No List Name"
@@ -71,13 +73,16 @@ class ListHomeActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documents ->
                 val fetchedItems = mutableListOf<ListItem>()
+                var totalCost = 0.0
                 for (document in documents) {
                     val item = document.toObject(ListItem::class.java)
                     item.id = document.id
                     item.token = token
                     fetchedItems.add(item)
+                    totalCost += item.price * item.quantity
                 }
                 adapter.updateData(fetchedItems) // Update RecyclerView
+                totalCostText.text = "Total Cost: $%.2f".format(totalCost)
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Failed to load items: ${e.message}", Toast.LENGTH_SHORT).show()

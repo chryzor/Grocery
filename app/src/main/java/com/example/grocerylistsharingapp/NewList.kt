@@ -17,6 +17,7 @@ class NewList : AppCompatActivity() {
     private lateinit var saveListButton: Button
     private lateinit var understandButton: Button
     private lateinit var tokenText: TextView
+    private lateinit var logoutButton: Button
 
     private val db = FirebaseFirestore.getInstance()
 
@@ -29,6 +30,7 @@ class NewList : AppCompatActivity() {
         saveListButton = findViewById(R.id.saveListButton)
         understandButton = findViewById(R.id.understandButton)
         tokenText = findViewById(R.id.tokenText)
+        logoutButton = findViewById(R.id.logoutButton)
 
         // Handle Save button click
         saveListButton.setOnClickListener {
@@ -41,6 +43,10 @@ class NewList : AppCompatActivity() {
                 // Logic to save the list (e.g., save to a database or shared preferences)
                 saveList(listName)
             }
+        }
+
+        logoutButton.setOnClickListener {
+            finish()
         }
     }
 
@@ -75,8 +81,8 @@ class NewList : AppCompatActivity() {
 
         understandButton.setOnClickListener {
             finish()
-//            val intent = Intent(this, ListHomeActivity::class.java)
-//            startActivity(intent)
         }
+
+
     }
 }

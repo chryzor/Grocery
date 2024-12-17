@@ -79,14 +79,14 @@ class AddForm : AppCompatActivity() {
             "date" to date
         )
 
-        // Save to Firestore under the specified list token
+        // Save to Firestore under the  list token
         db.collection("lists")
-            .document(token) // Use token as document ID
-            .collection("items") // Sub-collection for items
+            .document(token)
+            .collection("items")
             .add(newItem)
             .addOnSuccessListener {
                 Toast.makeText(this, "Item saved successfully!", Toast.LENGTH_SHORT).show()
-                finish() // Navigate back to ListHomeActivity
+                finish()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
