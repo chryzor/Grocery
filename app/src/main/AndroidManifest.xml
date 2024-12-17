@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".NewList" />
         <activity android:name=".ListHomeActivity" />
+        <activity android:name=".AddForm" />
     </application>
 
 </manifest>

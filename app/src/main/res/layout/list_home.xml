@@ -3,11 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/listTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grocery List"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tokenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Token: " />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
+        android:layout_above="@+id/navigationBar"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="94dp"
+        android:layout_marginBottom="339dp" />
 
     <LinearLayout
         android:id="@+id/navigationBar"
@@ -17,34 +42,21 @@
         android:layout_marginBottom="0dp"
         android:background="@color/white"
         android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/addItemButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="128dp"
-            android:orientation="horizontal"
-            android:text="Add Item" />
-
-        <Button
-            android:id="@+id/homeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home" />
-
-        <Button
-            android:id="@+id/logoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add" />
+            android:text="Add List Item" />
+
+        <Button
+            android:id="@+id/homeLogoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home | Logout" />
     </LinearLayout>
+
+
+
 </RelativeLayout>

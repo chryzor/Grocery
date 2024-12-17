@@ -5,9 +5,8 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import java.io.ObjectInput
 
-class add_form : AppCompatActivity(){
+class AddForm : AppCompatActivity(){
     // User Interface
     private lateinit var saveItemButton:Button
     private lateinit var buyBeforePicker:DatePicker
@@ -27,7 +26,6 @@ class add_form : AppCompatActivity(){
         itemInputName = findViewById(R.id.itemNameInput)
         itemQuantityInput = findViewById(R.id.itemQuantityInput)
         itemCostInput = findViewById(R.id.itemCostInput)
-        homeButton = findViewById(R.id.homeButton)
         logoutButton = findViewById(R.id.logoutButton)
 
         // Set up listeners if needed
@@ -35,12 +33,8 @@ class add_form : AppCompatActivity(){
             // Handle saving the item
         }
 
-        homeButton.setOnClickListener {
-            // Navigate to home screen
-        }
-
         logoutButton.setOnClickListener {
-            // Handle logout
+            finish()
         }
     }
 }

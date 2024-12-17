@@ -40,24 +40,10 @@
             android:layout_height="wrap_content"
             android:text="Save" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/logoutButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@color/white">
-
-            <Button
-                android:id="@+id/homeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home" />
-
-            <Button
-                android:id="@+id/logoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout" />
-        </LinearLayout>
+            android:text="Home | Logout" />
     </LinearLayout>
 </ScrollView>

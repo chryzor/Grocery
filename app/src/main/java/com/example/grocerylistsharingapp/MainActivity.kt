@@ -66,11 +66,12 @@ class MainActivity : AppCompatActivity() {
                             // Retrieve the first matching document
                             val document = documents.documents[0]
                             val listName = document.getString("listName") ?: "Unnamed List"
+                            val token = document.getString("token") ?: "No Token"
 
                             // Navigate to the list activity and pass data
                             val intent = Intent(this, ListHomeActivity::class.java)
                             intent.putExtra("listName", listName)
-                            intent.putStringArrayListExtra("items", arrayListOf()) // Empty list for now
+                            intent.putExtra("token", token)
                             startActivity(intent)
                         } else {
                             Toast.makeText(this, "No list found with the provided token", Toast.LENGTH_SHORT).show()
