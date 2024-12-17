@@ -39,7 +39,7 @@
         android:id="@+id/joinListText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter list token to join" />
+        android:hint="Enter list token to join" />
 
     <Button
         android:id="@+id/joinListButton"
