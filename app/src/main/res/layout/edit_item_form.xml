@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Item Name -->
+        <EditText
+            android:id="@+id/editItemName"
+            android:layout_width="394dp"
+            android:layout_height="56dp"
+            android:hint="Item name"
+            android:inputType="text" />
+
+        <!-- Buy Before Date Picker -->
+        <DatePicker
+            android:id="@+id/editBuyBeforePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Quantity -->
+        <EditText
+            android:id="@+id/editItemQuantity"
+            android:layout_width="388dp"
+            android:layout_height="61dp"
+            android:hint="Quantity"
+            android:inputType="number" />
+
+        <!-- Total Cost -->
+        <EditText
+            android:id="@+id/editItemCost"
+            android:layout_width="393dp"
+            android:layout_height="55dp"
+            android:hint="Total cost"
+            android:inputType="numberDecimal" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveEditButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <!-- Cancel / Close Button -->
+        <Button
+            android:id="@+id/cancelEditButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+    </LinearLayout>
+</ScrollView>

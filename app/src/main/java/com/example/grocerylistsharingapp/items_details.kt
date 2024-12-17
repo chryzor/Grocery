@@ -1,5 +1,6 @@
 package com.example.grocerylistsharingapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -51,7 +52,14 @@ class ItemsDetailsActivity : AppCompatActivity() {
 
         // Set up button listeners
         editButton.setOnClickListener {
-            // Navigate to edit item activity
+            val intent = Intent(this, EditItemActivity::class.java)
+            intent.putExtra("itemName", name)
+            intent.putExtra("date", buyBefore)
+            intent.putExtra("quantity", quantity)
+            intent.putExtra("price", cost)
+            intent.putExtra("itemId", itemId)
+            intent.putExtra("token", token)
+            startActivity(intent)
         }
 
         removeButton.setOnClickListener {

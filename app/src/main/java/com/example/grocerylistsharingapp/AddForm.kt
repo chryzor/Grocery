@@ -63,7 +63,7 @@ class AddForm : AppCompatActivity() {
         val day = buyBeforePicker.dayOfMonth
         val month = buyBeforePicker.month + 1
         val year = buyBeforePicker.year
-        val date = "$day/$month/$year"
+        val date = "$month/$day/$year"
 
         // Validate input
         if (itemName.isEmpty()) {

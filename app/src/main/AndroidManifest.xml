@@ -25,6 +25,7 @@
         <activity android:name=".ListHomeActivity" />
         <activity android:name=".AddForm" />
         <activity android:name=".ItemsDetailsActivity" />
+        <activity android:name=".EditItemActivity" />
     </application>
 
 </manifest>
