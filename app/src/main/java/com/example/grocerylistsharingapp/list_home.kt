@@ -73,6 +73,8 @@ class ListHomeActivity : AppCompatActivity() {
                 val fetchedItems = mutableListOf<ListItem>()
                 for (document in documents) {
                     val item = document.toObject(ListItem::class.java)
+                    item.id = document.id
+                    item.token = token
                     fetchedItems.add(item)
                 }
                 adapter.updateData(fetchedItems) // Update RecyclerView
@@ -81,6 +83,7 @@ class ListHomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load items: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
 
     override fun onResume() {
         super.onResume()

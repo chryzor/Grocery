@@ -34,13 +34,16 @@ class ItemAdapter(private var itemList: MutableList<ListItem>, private val conte
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ItemsDetailsActivity::class.java).apply {
+                putExtra("itemId", currentItem.id)
                 putExtra("itemName", currentItem.itemName)
                 putExtra("quantity", currentItem.quantity)
                 putExtra("price", currentItem.price.toFloat())
                 putExtra("date", currentItem.date)
+                putExtra("token", currentItem.token)
             }
             context.startActivity(intent)
         }
+
     }
 
     override fun getItemCount(): Int = itemList.size

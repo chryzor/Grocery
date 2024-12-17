@@ -3,7 +3,9 @@ package com.example.grocerylistsharingapp
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ItemsDetailsActivity : AppCompatActivity() {
     // UI Components
@@ -14,10 +16,15 @@ class ItemsDetailsActivity : AppCompatActivity() {
     private lateinit var editButton: Button
     private lateinit var removeButton: Button
     private lateinit var logoutButton: Button
+    private lateinit var db: FirebaseFirestore
+    private var itemId: String? = null
+    private var token: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.item_details)
+
+        db = FirebaseFirestore.getInstance()
 
         // UI components
         itemName = findViewById(R.id.itemName)
@@ -33,6 +40,8 @@ class ItemsDetailsActivity : AppCompatActivity() {
         val buyBefore = intent.getStringExtra("date") ?: "Not Set"
         val quantity = intent.getIntExtra("quantity", 0)
         val cost = intent.getFloatExtra("price", 0.0f)
+        itemId = intent.getStringExtra("itemId")
+        token = intent.getStringExtra("token")
 
         // Set data to TextViews
         itemName.text = "Item Name: $name"
@@ -46,11 +55,32 @@ class ItemsDetailsActivity : AppCompatActivity() {
         }
 
         removeButton.setOnClickListener {
-            // Remove item logic
+            removeItemFromFirestore()
         }
 
         logoutButton.setOnClickListener {
             finish()
         }
+    }
+
+    private fun removeItemFromFirestore() {
+        // Ensure token and itemId are not null
+        if (token.isNullOrEmpty() || itemId.isNullOrEmpty()) {
+            Toast.makeText(this, "Unable to remove item: Missing token or ID", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        db.collection("lists")
+            .document(token!!)
+            .collection("items")
+            .document(itemId!!)
+            .delete()
+            .addOnSuccessListener {
+                Toast.makeText(this, "Item removed successfully", Toast.LENGTH_SHORT).show()
+                finish() // Close this activity and return to the list
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Failed to remove item: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }
