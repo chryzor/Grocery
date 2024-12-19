@@ -18,14 +18,14 @@
         android:textAlignment="center"
         android:textSize="34sp" />
 
-    <ImageView
-        android:id="@+id/myImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/shopping_cart"
-        android:contentDescription="Shopping Cart"
-        android:layout_gravity="center" />
+<!--    <ImageView-->
+<!--        android:id="@+id/myImageView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:src="@drawable/shopping_cart"-->
+<!--        android:contentDescription="Shopping Cart"-->
+<!--        android:layout_gravity="center" />-->
 
     <Button
         android:id="@+id/createListButton"
